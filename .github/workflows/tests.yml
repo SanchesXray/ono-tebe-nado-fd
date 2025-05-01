@@ -1,5 +1,5 @@
 name: Tests
-
+ run: echo "This repository is private: ${{github.event.repository.private}}"
 on:
   push:
     branches:
