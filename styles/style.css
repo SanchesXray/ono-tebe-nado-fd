@@ -1,1 +1,399 @@
 /* место для вашего кода */
+
+/* плавная прокрутка страницы */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Основной контейнер шапки сайта.
+  Использует CSS Grid для размещения элементов в три колонки:
+   - 1fr (левая часть с навигацией)
+   - min-content (центр с логотипом)
+   - 1fr (правая часть с адресом)
+  Также включает вертикальное выравнивание по центру и внутренние отступы. */
+.header {
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr;
+  align-items: center;
+  padding: 92px 50px 96px;
+}
+
+/* Контейнер навигационного меню */
+.header__menu {
+  justify-self: center;
+}
+
+/* Список ссылок в шапке */
+.header__links-list {
+  display: flex;
+  gap: 33px;
+  list-style: circle;
+  font-size: 18px;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+/* пункт списка ссылок */
+.header__links-list-item {
+  border-bottom: 1px black solid;
+}
+
+/* Пункт списка без маркера (кружочка) */
+.header__links-list-item_no-bullit {
+  list-style: none;
+}
+
+/* Стиль ссылки в шапке. Убирает стандартное подчеркивание.*/
+.header__link {
+  text-decoration: none;
+}
+
+/* Стиль активной ссылки */
+.header__link_active {
+  border-bottom: none;
+}
+
+/* Контейнер логотипа */
+.header__logo {
+  display: grid;
+}
+
+/* Изображение логотипа */
+.header__logo-image {
+  width: 148px;
+  height: 105px;
+}
+
+/* Общий стиль для адреса (может использоваться не только в header) */
+.address {
+  display: flex;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+}
+
+/* Стиль для ссылок в адресе. Добавляет подчеркивание. */
+.address a {
+  text-decoration: none;
+  border-bottom: 1px black solid;
+}
+
+/* Специфичный стиль адреса в шапке (для выравнивания) */
+.header__address {
+  justify-content: flex-end;
+}
+
+/* Убирает маркеры у списка с адресом. */
+.list__address {
+  list-style: none;
+}
+
+/* Начало секции Cover */
+/* Блок с фоновым изображением (обложка).
+Задает фон, позиционирование и отступы. */
+.cover {
+  background-image: url(../images/cover.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 0;
+  inset: 0;
+  padding-bottom: 51px;
+  background-color: #f3c6c6;
+}
+
+/* Затемнение поверх фона (для улучшения читаемости текста). */
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+/* Заголовок в блоке обложки. Задает шрифт, цвет,
+трансформацию (все заглавные) и отступы. */
+.cover__title {
+  padding: 165px 50px 137px;
+  color: #fff;
+  font-size: 100px;
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 2;
+  position: relative;
+}
+
+.aligned-text {
+  display: block; /* Каждый span с новой строки */
+}
+
+/* Центрированная строка заголовка
+с увеличенным межстрочным интервалом. */
+.aligned-text_center {
+  text-align: center;
+  line-height: 140px;
+}
+
+/* Правостороннее выравнивание строки заголовка. */
+.aligned-text_right {
+  text-align: right;
+  line-height: 100px;
+}
+
+/* класс для управления межбуквенным расстоянием в местах,
+где есть эти акценты */
+.letter-spacing-extended {
+  letter-spacing: 0.3em;
+}
+
+/* класс для обнуления общего межбуквенного расстояния
+у последней буквы */
+.no-letter-spacing {
+  letter-spacing: 0;
+}
+
+/* Контейнер для текста и кнопки в обложке.
+Flex-расположение с выравниванием по правому краю. */
+.cover__description {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 2;
+  gap: 78px;
+  position: relative;
+}
+
+/* Стиль текста в описании обложки
+(белый, заглавные буквы, увеличенный межсловный интервал). */
+.cover__description-text {
+  color: #fff;
+  font-size: 22px;
+  text-transform: uppercase;
+  word-spacing: 18px;
+}
+
+/* Кнопка "Сделать ставку". Прозрачный фон, белая рамка,
+заглавный текст. */
+.bet-button {
+  margin-right: 50px;
+  background-color: transparent;
+  width: 256px;
+  padding: 12px 32px 11px 31px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 22px;
+  white-space: nowrap;
+  border: 1px solid #fff;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* кнопка подсвечивается белым при наведении курсора
+и добавляет прозрачный фон*/
+.bet-button:hover {
+  background-color: rgba(185, 199, 215, 0.3);
+  transform: scale(1.01); /* лёгкое увеличение */
+}
+
+/* Начало секции "ЛОТЫ" */
+.lots {
+  padding: 183px 24px 55px;
+}
+
+/* Заголовок секции. Жирный шрифт, заглавные буквы. */
+.lots__heading {
+  padding-left: 40px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 47px;
+  text-transform: uppercase;
+}
+
+/* Список карточек.
+Flex-контейнер с переносом строк и отступами между элементами. */
+.lots__card-list {
+  padding-top: 27px;
+  padding-bottom: 30px;
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+/* Элемент списка карточек.
+Гибкая ширина (flex-grow) и минимальная высота. */
+.lots__card-list-item {
+  width: 334px;
+  display: flex;
+  flex-grow: 1;
+}
+
+/* Ссылка на карточку.
+Убирает стандартное подчеркивание. */
+.card-link {
+  display: block;
+  text-decoration: none;
+}
+
+/* Общий стиль карточки.
+Фоновое изображение, отступы, flex-расположение контента. */
+.card {
+  padding: 51px 40px 48px;
+  min-height: 596px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Карточка с фоном-фильмом. */
+.card_type_film {
+  background-image: url(../images/card-lot-01.jpg);
+}
+
+/* Карточка с фоном-книгой. */
+.card_type_book {
+  background-image: url(../images/card-lot-02.jpg);
+}
+
+/* Карточка с фоном-картиной. */
+.card_type_picture {
+  background-image: url(../images/card-lot-03.jpg);
+}
+
+/* Заголовок карточки.
+Белый текст с подчеркиванием, заглавные буквы. */
+.card__title {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  text-decoration-line: underline;
+  text-underline-offset: 3px;
+  text-transform: uppercase;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+/* Текст карточки. Белый цвет, стандартный шрифт. */
+.card__text {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+/* Ссылка "Посмотреть больше". Подчеркивание и отступы. */
+.lots__look-more-link {
+  text-decoration: none;
+  border-bottom: 1px black solid;
+  margin-left: 40px;
+  margin-top: 30px;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+/* Начало Секции "О нас" */
+.about {
+  padding: 95px 24px 158px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Колонка в секции "О нас". Фиксированная ширина. */
+.about__column {
+  width: 693px;
+}
+
+/* Круглый логотип с черным фоном.
+Центрирование содержимого. */
+.about__logo {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 35px 47px;
+}
+
+/* Изображение внутри логотипа. Фиксированные размеры. */
+.about__logo-image {
+  width: 148px;
+  height: 114px;
+}
+
+/* Заголовок секции "О нас". Жирный шрифт, заглавные буквы, отступы. */
+.about__title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 47px;
+  text-transform: uppercase;
+  margin-bottom: 100px;
+  margin-top: 135px;
+}
+
+/* Текст в секции "О нас". Стандартный шрифт с отступами снизу. */
+.about__text {
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+/* Начало секции "FOOTER" Подвал сайта. Flex-расположение с отступами.*/
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 50px 88px;
+}
+
+/* Меню в подвале. Дополнительный отступ слева. */
+.footer__menu {
+  padding-left: 35px;
+}
+
+/* Список меню. Центрированный текст без маркеров. */
+.footer__menu-list {
+  font-size: 18px;
+  line-height: 21.13px;
+  text-align: center;
+  list-style: none;
+}
+
+/* Элемент меню. Добавляет подчеркивание. */
+.footer__menu-list-item {
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+}
+
+/* Ссылка в меню. Убирает стандартное подчеркивание. */
+.footer__menu-link {
+  text-decoration: none;
+}
+
+/* Активная ссылка в меню. Без подчеркивания. */
+.footer__menu-link_active {
+  text-decoration: none;
+}
+
+/* Список соцсетей. Flex-расположение с отступами между иконками. */
+.footer__social-list {
+  display: flex;
+  list-style: none;
+  gap: 48px;
+}
+
+/* Иконка соцсети. Фиксированные размеры. */
+.footer__social-icon {
+  height: 48px;
+  width: 48px;
+}
