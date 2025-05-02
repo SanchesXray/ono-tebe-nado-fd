@@ -116,42 +116,38 @@
   left: 0;
 }
 
-/* Заголовок в блоке обложки. Задает шрифт, цвет,
-трансформацию (все заглавные) и отступы. */
+/* Заголовок в блоке обложки. Задает шрифт, цвет, 
+трансформацию (все заглавные) и отступы через grid */ 
 .cover__title {
-  padding: 165px 50px 137px;
+  display: grid;
+  grid-template-rows: auto auto auto; /* 3 строки для каждого span */
+  gap: 17px; /* Расстояние между строками */
+  padding: 165px 50px 100px;
   color: #fff;
   font-size: 100px;
   text-transform: uppercase;
   font-weight: bold;
   z-index: 2;
   position: relative;
+  margin: 0; /* Сбрасываем стандартные отступы */
 }
 
+/* Каждый span теперь является grid-элементом */
 .aligned-text {
-  display: block; /* Каждый span с новой строки */
-  position: absolute;
+  display: flex;
+  align-items: center;
 }
 
-/* Центрированная строка заголовка
-с увеличенным межстрочным интервалом. */
+/* Центрированная строка заголовка */ 
 .aligned-text_center {
-  text-align: center;
-  line-height: 115px;
-  width: 339px;
-  height: 115px;
-  left: calc(50% - 339px / 2);
-  top: 300px;
+  justify-content: center;
+  position: relative;
+  left: 14px;
 }
 
-/* Правостороннее выравнивание строки заголовка. */
+/* Правостороннее выравнивание строки заголовка. */ 
 .aligned-text_right {
-  text-align: right;
-  line-height: 115px;
-  width: 387px;
-  height: 115px;
-  left: 663px;
-  top: 435px;
+  justify-content: flex-end;
 }
 
 /* класс для управления межбуквенным расстоянием в местах,
@@ -170,15 +166,13 @@
 Flex-расположение с выравниванием по правому краю. */
 .cover__description {
   display: grid;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  position: absolute;
-  bottom: 50px;
-  left: 50px;
-  right: 50px;
   grid-template-columns: 1fr auto;
+  align-items: center;
   text-align: center;
+  z-index: 2;
+  position: relative;
+  inset: 5px 40px;
+  width: 92%;
 }
 
 /* Стиль текста в описании обложки
@@ -190,7 +184,7 @@ Flex-расположение с выравниванием по правому 
   word-spacing: 18px;
   display: flex;
   justify-content: left;
-  padding: 12px 0;
+  padding: 12px 10px;
 }
 
 /* Кнопка "Сделать ставку". Прозрачный фон, белая рамка,
@@ -204,6 +198,7 @@ Flex-расположение с выравниванием по правому 
   font-size: 22px;
   white-space: nowrap;
   border: 1px solid #fff;
+  box-shadow: 0 0 5px currentColor;
   transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -366,6 +361,7 @@ Flex-контейнер с переносом строк и отступами �
   font-size: 20px;
   line-height: 24px;
   margin-bottom: 24px;
+  max-width: 688px;
 }
 
 /* Начало секции "FOOTER" Подвал сайта. Flex-расположение с отступами.*/
