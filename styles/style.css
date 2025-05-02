@@ -179,7 +179,6 @@ Flex-расположение с выравниванием по правому 
   right: 50px;
   grid-template-columns: 1fr auto;
   text-align: center;
-  z-index: 2;
 }
 
 /* Стиль текста в описании обложки
@@ -298,16 +297,16 @@ Flex-контейнер с переносом строк и отступами �
 
 /* Текст карточки. Белый цвет, стандартный шрифт. */
 .card__text {
+  font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  display: flex;
+  display: block;
   flex-direction: column;
   color: #fff;
   position: relative;
   z-index: 1;
   padding-top: 20px;
-  /* font-style: normal; */
 }
 
 /* Ссылка "Посмотреть больше". Подчеркивание и отступы. */
