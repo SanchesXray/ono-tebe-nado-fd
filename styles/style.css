@@ -15,12 +15,12 @@
   display: grid;
   grid-template-columns: 1fr min-content 1fr;
   align-items: center;
-  padding: 92px 50px;
+  padding: 94px 50px;
 }
 
 /* Контейнер навигационного меню */
 .header__menu {
-  justify-self: center;
+  justify-content: center;
 }
 
 /* Список ссылок в шапке */
@@ -81,7 +81,8 @@
 
 /* Специфичный стиль адреса в шапке (для выравнивания) */
 .header__address {
-  justify-content: flex-end;
+  justify-content: end;
+  padding-right: 32px;
 }
 
 /* Убирает маркеры у списка с адресом. */
@@ -101,6 +102,7 @@
   inset: 0;
   padding-bottom: 51px;
   background-color: #f3c6c6;
+  min-height: 757px;
 }
 
 /* Затемнение поверх фона (для улучшения читаемости текста). */
@@ -128,19 +130,28 @@
 
 .aligned-text {
   display: block; /* Каждый span с новой строки */
+  position: absolute;
 }
 
 /* Центрированная строка заголовка
 с увеличенным межстрочным интервалом. */
 .aligned-text_center {
   text-align: center;
-  line-height: 140px;
+  line-height: 115px;
+  width: 339px;
+  height: 115px;
+  left: calc(50% - 339px / 2);
+  top: 300px;
 }
 
 /* Правостороннее выравнивание строки заголовка. */
 .aligned-text_right {
   text-align: right;
-  line-height: 100px;
+  line-height: 115px;
+  width: 387px;
+  height: 115px;
+  left: 663px;
+  top: 435px;
 }
 
 /* класс для управления межбуквенным расстоянием в местах,
@@ -158,12 +169,17 @@
 /* Контейнер для текста и кнопки в обложке.
 Flex-расположение с выравниванием по правому краю. */
 .cover__description {
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
+  justify-content: center;
   align-items: center;
   z-index: 2;
-  gap: 78px;
-  position: relative;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  right: 50px;
+  grid-template-columns: 1fr auto;
+  text-align: center;
+  z-index: 2;
 }
 
 /* Стиль текста в описании обложки
@@ -173,15 +189,17 @@ Flex-расположение с выравниванием по правому 
   font-size: 22px;
   text-transform: uppercase;
   word-spacing: 18px;
+  display: flex;
+  justify-content: left;
+  padding: 12px 0;
 }
 
 /* Кнопка "Сделать ставку". Прозрачный фон, белая рамка,
 заглавный текст. */
 .bet-button {
-  margin-right: 50px;
   background-color: transparent;
   width: 256px;
-  padding: 12px 32px 11px 31px;
+  padding: 12px 32px;
   color: #fff;
   text-transform: uppercase;
   font-size: 22px;
@@ -199,7 +217,7 @@ Flex-расположение с выравниванием по правому 
 
 /* Начало секции "ЛОТЫ" */
 .lots {
-  padding: 183px 24px 55px;
+  padding: 180px 24px 0;
 }
 
 /* Заголовок секции. Жирный шрифт, заглавные буквы. */
@@ -239,7 +257,7 @@ Flex-контейнер с переносом строк и отступами �
 /* Общий стиль карточки.
 Фоновое изображение, отступы, flex-расположение контента. */
 .card {
-  padding: 51px 40px 48px;
+  padding: 48px 40px;
   min-height: 596px;
   display: flex;
   flex-direction: column;
@@ -288,6 +306,8 @@ Flex-контейнер с переносом строк и отступами �
   color: #fff;
   position: relative;
   z-index: 1;
+  padding-top: 20px;
+  /* font-style: normal; */
 }
 
 /* Ссылка "Посмотреть больше". Подчеркивание и отступы. */
@@ -302,7 +322,7 @@ Flex-контейнер с переносом строк и отступами �
 
 /* Начало Секции "О нас" */
 .about {
-  padding: 95px 24px 158px;
+  padding: 120px 24px 158px;
   display: flex;
   justify-content: space-between;
 }
@@ -310,6 +330,7 @@ Flex-контейнер с переносом строк и отступами �
 /* Колонка в секции "О нас". Фиксированная ширина. */
 .about__column {
   width: 693px;
+  text-align: left;
 }
 
 /* Круглый логотип с черным фоном.
@@ -358,13 +379,13 @@ Flex-контейнер с переносом строк и отступами �
 
 /* Меню в подвале. Дополнительный отступ слева. */
 .footer__menu {
-  padding-left: 35px;
+  text-align: center;
 }
 
 /* Список меню. Центрированный текст без маркеров. */
 .footer__menu-list {
   font-size: 18px;
-  line-height: 21.13px;
+  line-height: 21px;
   text-align: center;
   list-style: none;
 }
