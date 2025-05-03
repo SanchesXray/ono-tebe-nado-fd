@@ -139,9 +139,7 @@
 
 /* Центрированная строка заголовка */
 .aligned-text_center {
-  justify-content: center;
-  position: relative;
-  left: 14px;
+  justify-content: center;  
 }
 
 /* Правостороннее выравнивание строки заголовка. */
@@ -168,10 +166,10 @@ Flex-расположение с выравниванием по правому 
   grid-template-columns: 1fr auto;
   align-items: center;
   text-align: center;
+  padding: 0 50px;
+  gap: 88px;
   z-index: 2;
   position: relative;
-  inset: 5px 40px;
-  width: 92%;
 }
 
 /* Стиль текста в описании обложки
@@ -181,8 +179,6 @@ Flex-расположение с выравниванием по правому 
   font-size: 22px;
   text-transform: uppercase;
   word-spacing: 18px;
-  display: flex;
-  justify-content: left;
   padding: 12px 10px;
 }
 
@@ -191,7 +187,7 @@ Flex-расположение с выравниванием по правому 
 .bet-button {
   background-color: transparent;
   width: 256px;
-  padding: 12px 32px;
+  padding: 12px 32px 11px 31px;
   color: #fff;
   text-transform: uppercase;
   font-size: 22px;
@@ -200,6 +196,7 @@ Flex-расположение с выравниванием по правому 
   box-shadow: 0 0 5px currentColor;
   transition: background-color 0.3s, transform 0.2s;
 }
+
 
 /* кнопка подсвечивается белым при наведении курсора
 и добавляет прозрачный фон*/
