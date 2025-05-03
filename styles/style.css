@@ -139,7 +139,7 @@
 
 /* Центрированная строка заголовка */
 .aligned-text_center {
-  justify-content: center;  
+  justify-content: center;
 }
 
 /* Правостороннее выравнивание строки заголовка. */
@@ -196,7 +196,6 @@ Flex-расположение с выравниванием по правому 
   box-shadow: 0 0 5px currentColor;
   transition: background-color 0.3s, transform 0.2s;
 }
-
 
 /* кнопка подсвечивается белым при наведении курсора
 и добавляет прозрачный фон*/
